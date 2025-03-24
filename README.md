@@ -142,7 +142,7 @@ Kurang fleksibel jika ingin menguji banyak skenario DFA.
     except json.JSONDecodeError as e:
         print("Error: Format JSON tidak valid.")
   ```
-fungsi run_dfa pada source code 2 pada dasarnya sama seperti pada souce code 1, perbedaan pada keduanya hanya terjadi pada format inputnya saja.
+Fungsi run_dfa pada source code 2 pada dasarnya sama seperti pada souce code 1, perbedaan pada keduanya hanya terjadi pada format inputnya saja.
 
 Kelebihan:
 Lebih modular karena cukup mengganti isi file input tanpa perlu mengubah kode program.
