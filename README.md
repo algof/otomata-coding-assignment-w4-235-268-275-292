@@ -125,7 +125,7 @@ otomata-coding-assignment-w4-235-268-275-292
     except json.JSONDecodeError as e:
         print("Error: Format JSON tidak valid.")
   ```
-- Source code 3 (Menggunakan library DFA secara langsung)
+- Source code 3 (menggunakan library DFA secara langsung)
   ```py
     from automata.fa.dfa import DFA
     import json
