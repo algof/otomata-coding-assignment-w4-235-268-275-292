@@ -16,7 +16,7 @@ otomata-coding-assignment-w4-235-268-275-292
 
 ![contoh-input-output](./asset/contoh_input_output_1.jpg)
 
-- Source code
+- Source code 1 (input melalui code)
     ```py
     import json
 
@@ -88,5 +88,76 @@ otomata-coding-assignment-w4-235-268-275-292
     print(f"Sample input 2: {dfa_data['test_string']}")
     run_dfa(dfa_data)
     ```
+- Source Code 2 (input melalui file)
+  ```py
+    import json
+    
+    def run_dfa(dfa_data):
+        states = dfa_data["states"]
+        alphabet = dfa_data["alphabet"]
+        start_state = dfa_data["start_state"]
+        accept_states = dfa_data["accept_states"]
+        transitions = dfa_data["transitions"]
+        test_string = dfa_data["test_string"]
+    
+        current_state = start_state
+        path = [current_state]
+    
+        for symbol in test_string:
+            if symbol not in alphabet:
+                print(f"Error: Symbol '{symbol}' not in DFA alphabet")
+                return
+            current_state = transitions[current_state][symbol]
+            path.append(current_state)
+    
+        status = "ACCEPTED" if current_state in accept_states else "REJECTED"
+        print("Path:", " → ".join(path))
+        print("Status:", status)
+    
+    file_path = "dfa_test.json"
+    
+    try:
+        with open(file_path, "r") as file:
+            dfa_data = json.load(file)  # Mencoba membaca JSON
+            run_dfa(dfa_data)
+    except FileNotFoundError:
+        print(f"Error: File '{file_path}' tidak ditemukan.")
+    except json.JSONDecodeError as e:
+        print("Error: Format JSON tidak valid.")
+  ```
+- Source code 3 (Menggunakan library DFA secara langsung)
+  ```py
+    from automata.fa.dfa import DFA
+    import json
+    
+    json_string = '''
+    {
+        "states": ["q0", "q1", "q2", "q3"],
+        "alphabet": ["a", "b"],
+        "start_state": "q0",
+        "accept_states": ["q2", "q3"],
+        "transitions": {
+            "q0": { "a": "q1", "b": "q3" },
+            "q1": { "a": "q1", "b": "q2" },
+            "q2": { "a": "q1", "b": "q3" },
+            "q3": { "a": "q2", "b": "q3" }
+        },
+        "test_string": "ab"
+    }
+    '''
+    
+    data = json.loads(json_string)
+    
+    dfa = DFA(
+        states=set(data["states"]),
+        input_symbols=set(data["alphabet"]),
+        transitions=data["transitions"],
+        initial_state=data['start_state'],
+        final_states=set(data["accept_states"])
+    )
+    
+    print(dfa.accepts_input(data['test_string']))  # True
+    print(dfa.accepts_input('aa'))  # False
+  ```
 
 - Explanation
