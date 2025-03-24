@@ -89,13 +89,21 @@ otomata-coding-assignment-w4-235-268-275-292
     run_dfa(dfa_data)
     ```
 
-    Fungsi run_dfa(dfa_data) melakukan proses simulasi DFA. Langkah pertama adalah mengambil data dari dictionary. Variabel states, alphabet, start_state, accept_states, transitions, dan test_string digunakan untuk menyimpan informasi dari DFA yang akan diproses.
+Fungsi run_dfa(dfa_data) melakukan proses simulasi DFA. Langkah pertama adalah mengambil data dari dictionary. Variabel states, alphabet, start_state, accept_states, transitions, dan test_string digunakan untuk menyimpan informasi dari DFA yang akan diproses.
 
 Selanjutnya, kita menginisialisasi state awal dengan cara current_state dimulai dari start_state. Setelah itu, kita menyimpan jejak state yang dilewati selama proses DFA dengan path.
 
 Kemudian, kita memproses symbol pada test_string dengan loop untuk membaca setiap symbol dalam test_string. Jika symbol tidak ada dalam alphabet, maka akan menampilkan pesan error dan keluar dari fungsi. Jika symbol valid, maka akan terjadi transisi ke state berikutnya sesuai aturan transition. Tak lupa, tambahkan state yang dilewati ke dalam path.
 
 Kita juga perlu mengecek status akhir. Jika current_state setelah memproses seluruh test_string ada di accept_states, maka statusnya ACCEPTED. Jika tidak, maka REJECTED. Kita juga menampilkan jalur state yang dilewati.
+
+Kelebihan:
+Mudah dibaca dan dipahami.
+Program terstruktur secara berurutan dari atas ke bawah.
+
+Kekurangan:
+Tidak modular karena input harus diubah langsung di dalam kode.
+Kurang fleksibel jika ingin menguji banyak skenario DFA.
 
 - Source code 2 (input melalui file)
   ```py
@@ -134,6 +142,13 @@ Kita juga perlu mengecek status akhir. Jika current_state setelah memproses selu
     except json.JSONDecodeError as e:
         print("Error: Format JSON tidak valid.")
   ```
+
+Kelebihan:
+Lebih modular karena cukup mengganti isi file input tanpa perlu mengubah kode program.
+
+Kekurangan:
+File tambahan membuat jumlah file bertambah, sehingga bisa sulit dibaca dan dikelola.
+
 - Source code 3 (menggunakan library DFA secara langsung)
   ```py
     from automata.fa.dfa import DFA
@@ -168,5 +183,10 @@ Kita juga perlu mengecek status akhir. Jika current_state setelah memproses selu
     print(dfa.accepts_input(data['test_string']))  # True
     print(dfa.accepts_input('aa'))  # False
   ```
+Kelebihan:
+Tidak perlu menulis fungsi DFA secara manual, karena sudah tersedia dalam library.
+
+Kekurangan:
+Tidak dapat menampilkan jalur (path) yang dilalui, karena fitur ini tidak disediakan oleh library.
 
 - Explanation
