@@ -15,6 +15,7 @@ otomata-coding-assignment-w4-235-268-275-292
 - Screenshot
 
 ![contoh-input-output](./asset/contoh_input_output_1.jpg)
+![contoh-input-output](/asset/contoh_input_output_1.jpg)
 
 - Source code
     ```py
