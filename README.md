@@ -88,7 +88,7 @@ otomata-coding-assignment-w4-235-268-275-292
     print(f"Sample input 2: {dfa_data['test_string']}")
     run_dfa(dfa_data)
     ```
-- Source Code 2 (input melalui file)
+- Source code 2 (input melalui file)
   ```py
     import json
     
