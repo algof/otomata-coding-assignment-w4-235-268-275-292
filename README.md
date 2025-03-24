@@ -62,6 +62,7 @@ otomata-coding-assignment-w4-235-268-275-292
     
     # Mencari jawaban sample input 1
     dfa_data = json.loads(dfa_json)
+    print(f"Sample input 1: {dfa_data['test_string']}")
     run_dfa(dfa_data)
     print("\n")
     
@@ -84,6 +85,7 @@ otomata-coding-assignment-w4-235-268-275-292
     
     # Mencari jawaban sample input 2
     dfa_data = json.loads(dfa_json)
+    print(f"Sample input 2: {dfa_data['test_string']}")
     run_dfa(dfa_data)
     ```
 
