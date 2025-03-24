@@ -97,11 +97,11 @@ Kemudian, kita memproses symbol pada test_string dengan loop untuk membaca setia
 
 Kita juga perlu mengecek status akhir. Jika current_state setelah memproses seluruh test_string ada di accept_states, maka statusnya ACCEPTED. Jika tidak, maka REJECTED. Kita juga menampilkan jalur state yang dilewati.
 
-- Kelebihan:
+Kelebihan:
 Mudah dibaca dan dipahami.
 Program terstruktur secara berurutan dari atas ke bawah.
 
-- Kekurangan:
+Kekurangan:
 Tidak modular karena input harus diubah langsung di dalam kode.
 Kurang fleksibel jika ingin menguji banyak skenario DFA.
 
@@ -144,10 +144,10 @@ Kurang fleksibel jika ingin menguji banyak skenario DFA.
   ```
 fungsi run_dfa pada source code 2 pada dasarnya sama seperti pada souce code 1, perbedaan pada keduanya hanya terjadi pada format inputnya saja.
 
-- Kelebihan:
+Kelebihan:
 Lebih modular karena cukup mengganti isi file input tanpa perlu mengubah kode program.
 
-- Kekurangan:
+Kekurangan:
 File tambahan membuat jumlah file bertambah, sehingga bisa sulit dibaca dan dikelola.
 
 - Source code 3 (menggunakan library DFA secara langsung)
@@ -184,9 +184,9 @@ File tambahan membuat jumlah file bertambah, sehingga bisa sulit dibaca dan di
     print(dfa.accepts_input(data['test_string']))  # True
     print(dfa.accepts_input('aa'))  # False
   ```
-- Kelebihan:
+Kelebihan:
 Tidak perlu menulis fungsi DFA secara manual, karena sudah tersedia dalam library.
 
-- Kekurangan:
+Kekurangan:
 Tidak dapat menampilkan jalur (path) yang dilalui, karena fitur ini tidak disediakan oleh library.
 
