@@ -88,6 +88,15 @@ otomata-coding-assignment-w4-235-268-275-292
     print(f"Sample input 2: {dfa_data['test_string']}")
     run_dfa(dfa_data)
     ```
+
+    Fungsi run_dfa(dfa_data) melakukan proses simulasi DFA. Langkah pertama adalah mengambil data dari dictionary. Variabel states, alphabet, start_state, accept_states, transitions, dan test_string digunakan untuk menyimpan informasi dari DFA yang akan diproses.
+
+Selanjutnya, kita menginisialisasi state awal dengan cara current_state dimulai dari start_state. Setelah itu, kita menyimpan jejak state yang dilewati selama proses DFA dengan path.
+
+Kemudian, kita memproses symbol pada test_string dengan loop untuk membaca setiap symbol dalam test_string. Jika symbol tidak ada dalam alphabet, maka akan menampilkan pesan error dan keluar dari fungsi. Jika symbol valid, maka akan terjadi transisi ke state berikutnya sesuai aturan transition. Tak lupa, tambahkan state yang dilewati ke dalam path.
+
+Kita juga perlu mengecek status akhir. Jika current_state setelah memproses seluruh test_string ada di accept_states, maka statusnya ACCEPTED. Jika tidak, maka REJECTED. Kita juga menampilkan jalur state yang dilewati.
+
 - Source code 2 (input melalui file)
   ```py
     import json
